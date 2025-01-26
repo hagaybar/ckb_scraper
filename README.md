@@ -89,6 +89,3 @@ Modify the extract_tables function to handle specific HTML structures if necessa
 
 ## License
 This project is licensed under the MIT License.
-
-## Acknowledgments
-Special thanks to the developers of the requests, BeautifulSoup, and pandas libraries for enabling efficient web scraping and data manipulation.
