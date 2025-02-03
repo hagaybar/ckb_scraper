@@ -123,11 +123,19 @@ def manage_output_folders(base_dir):
     last_time_dir = os.path.join(base_dir, "last time")
     os.makedirs(current_dir, exist_ok=True)
     os.makedirs(last_time_dir, exist_ok=True)
-    
+
     if os.listdir(current_dir):
         logging.info("Moving current files to last time directory")
         for file_name in os.listdir(current_dir):
-            os.rename(os.path.join(current_dir, file_name), os.path.join(last_time_dir, file_name))
+            source_path = os.path.join(current_dir, file_name)
+            destination_path = os.path.join(last_time_dir, file_name)
+
+            # Check if the file already exists in 'last_time' and delete it
+            if os.path.exists(destination_path):
+                os.remove(destination_path)
+
+        # Move (rename) the file
+        os.rename(source_path, destination_path)    
 
 def save_tables(extracted_tables, output_dir):
     """Saves extracted tables as CSV files."""
