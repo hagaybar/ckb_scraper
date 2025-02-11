@@ -134,8 +134,8 @@ def manage_output_folders(base_dir):
             if os.path.exists(destination_path):
                 os.remove(destination_path)
 
-        # Move (rename) the file
-        os.rename(source_path, destination_path)    
+            # Move (rename) the file
+            os.rename(source_path, destination_path)    
 
 def save_tables(extracted_tables, output_dir):
     """Saves extracted tables as CSV files."""
